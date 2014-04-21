@@ -1,0 +1,3 @@
+
+char* Foo(char* target);
+
