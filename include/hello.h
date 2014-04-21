@@ -1,0 +1,3 @@
+
+char* Hello(char* target);
+
