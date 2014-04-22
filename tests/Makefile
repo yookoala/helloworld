@@ -22,8 +22,8 @@ test: test_hello test_foo
 	@ echo ----------
 	@ echo  Run Test
 	@ echo ----------
-	@ ./test_hello && echo "test_hello: Pass"
-	@ ./test_foo   && echo "test_foo:   Pass"
+	@ LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:../lib ./test_hello && echo "test_hello: Pass"
+	@ LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:../lib ./test_foo   && echo "test_foo:   Pass"
 	@ echo
 
 .PHONY: clean test
