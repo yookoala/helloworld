@@ -1,5 +1,18 @@
+PREFIX=/usr/local
+
 compile:
 	cd src; $(MAKE) $@
+
+install: compile
+	cp lib/libhello.so ${PREFIX}/lib/.
+	cp include/hello.h ${PREFIX}/include/.
+	cp include/foo.h ${PREFIX}/include/.
+	ldconfig
+
+uninstall:
+	rm -f ${PREFIX}/lib/libhello.so
+	rm -f ${PREFIX}/include/hello.h
+	rm -f ${PREFIX}/include/foo.h
 
 all:
 	cd src; $(MAKE) $@
@@ -15,4 +28,4 @@ test: compile
 lib:
 	mkdir lib
 
-.PHONY: compile all clean test
+.PHONY: compile install uninstall all clean test
