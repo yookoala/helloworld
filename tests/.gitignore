@@ -1,3 +1,5 @@
 *.o
 test_hello
 test_foo
+test_ci_hello
+test_ci_foo

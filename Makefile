@@ -25,7 +25,10 @@ clean:
 test: compile
 	cd tests; $(MAKE) $@
 
+ci-test:
+	cd tests; $(MAKE) $@
+
 lib:
 	mkdir lib
 
-.PHONY: compile install uninstall all clean test
+.PHONY: compile install uninstall all clean test ci-test
