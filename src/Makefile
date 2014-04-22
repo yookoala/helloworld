@@ -3,18 +3,18 @@ INC_PATH=../include
 all: compile
 	
 hello.o:
-	gcc -I${INC_PATH} -c hello.c -o hello.o
+	gcc -fPIC -I${INC_PATH} -c hello.c -o hello.o
 
 foo.o:
-	gcc -I${INC_PATH} -c foo.c -o foo.o
+	gcc -fPIC -I${INC_PATH} -c foo.c -o foo.o
 
 ../lib:
 	mkdir ../lib
 
-../lib/libhello.a: ../lib hello.o foo.o
-	ar -rcs ../lib/libhello.a hello.o foo.o
+../lib/libhello.so: ../lib hello.o foo.o
+	gcc -shared hello.o foo.o -o ../lib/libhello.so
 
-compile: ../lib/libhello.a
+compile: ../lib/libhello.so
 
 clean:
 	rm -f *.o
